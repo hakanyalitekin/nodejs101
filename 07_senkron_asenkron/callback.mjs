@@ -5,7 +5,7 @@
 /*
 -> Callback (ES6 Öncesi ama hala kullanımı mevcut)
 -> Promise (ES6 Sonrası)
--> async/await (Promise ile ilişkili.)
+-> async/await (ES7 -> Promise yapısını daha efektif kullanmamızı sağlıyor.)
 
 */
 
