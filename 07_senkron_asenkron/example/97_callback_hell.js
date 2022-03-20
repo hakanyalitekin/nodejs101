@@ -1,7 +1,5 @@
 //! Callback cehennemine düşelim!
 
-console.log("Program Başladı!")
-
 //iç içe callback'lerin kullanıldığı eski yordam.
 getUser(99, (user) => {
     getCourse(user.name, (courses) => {
@@ -34,5 +32,3 @@ function getComment(courseName, callback) {
         callback("Harika bir kurs!")
     }, 2500)
 }
-
-console.log("Program Bitti!")

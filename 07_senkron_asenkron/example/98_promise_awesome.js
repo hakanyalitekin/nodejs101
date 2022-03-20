@@ -1,12 +1,13 @@
 //! Promise ile callback cehenneminden çıkalım!
 
-console.log("Program Başladı!")
-
 //Callback'lerden kurtulup promise ile örneği;
 getUser(99)
     .then((user) => getCourse(user.name))
     .then((comments) => getComment(comments[2]))
     .then((bestComment) => console.log(bestComment))
+    .catch((err) => {
+        console.log("Hata:" + err) //"Üç işlemden hatası hata alırsa onu yazar"
+    })
 
 //then cehennemeine dönüştürmek mümkün. yukarıdaki kullanım daha doğru
 // getUser(99).then((user) => {
@@ -46,5 +47,3 @@ function getComment(courseName) {
         }, 2500)
     })
 }
-
-console.log("Program Bitti!")

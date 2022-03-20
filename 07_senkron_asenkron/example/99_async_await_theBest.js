@@ -1,7 +1,5 @@
 //! Yetmez! async - await ile okunur kulalım!
 
-console.log("Program Başladı!")
-
 /* **Senkron olsa şöyle olurdur**
 console.log("Program Başladı!")
 const user = getUser(99);
@@ -12,18 +10,26 @@ console.log("Program Bitti!")
 
 // Promise'in then kullanımı her ne kadar güzel olsada, async - await anahatarlarıyla tıpkı senkronmuş gibi yazmak mümkün.
 async function showComment(id) {
-    const user = await getUser(id)
-    const courses = await getCourse(user.name)
-    const comment = await getComment(courses[2])
-    console.log(comment)
+    //Promise'teki .catch'i async-await ile yakalamak için try-catch kullanılır
+    try {
+        const user = await getUser(id)
+        const courses = await getCourse(user.name)
+        const comment = await getComment(courses[2])
+        console.log(comment)
+    } catch (err) {
+        console.log("Hata:" + err) //"Üç işlemden hatası hata alırsa onu yazar"
+    }
 }
 
 showComment(99)
 
-// getUser(99)
-//     .then((user) => getCourse(user.name))
-//     .then((comments) => getComment(comments[2]))
-//     .then((bestComment) => console.log(bestComment))
+getUser(99)
+    .then((user) => getCourse(user.name))
+    .then((comments) => getComment(comments[2]))
+    .then((bestComment) => console.log(bestComment))
+    .catch((err) => {
+        console.log("Hata:" + err) //"Üç işlemden hatası hata alırsa onu yazar"
+    })
 
 //Kullanıcı Getir
 function getUser(id) {
@@ -54,5 +60,3 @@ function getComment(courseName) {
         }, 2500)
     })
 }
-
-console.log("Program Bitti!")
