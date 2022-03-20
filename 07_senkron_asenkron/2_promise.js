@@ -1,5 +1,5 @@
 /* Pormise : Asenkronluğun yönetilebilmesi için, iç içe kullanılan callback'lerin yarattığı karmaşıklıktan
-kurtulmak için ES6 ile birlikte Js geliştiricileri tarafından geliştirilen yapı. 
+kurtulmak için ES6 ile birlikte JavaScript geliştiricileri tarafından geliştirilen yapı. 
 Bu karışıklığa genelde callback hell denir. Ve şöyle bir görsel ile anlatılır. -> https://miro.medium.com/max/1200/1*sOy11ZsU1ijCSjZwx8ZzGQ.jpeg
 
 Bir promise objesi 3 durumda olabilir;
@@ -9,15 +9,15 @@ Bir promise objesi 3 durumda olabilir;
 
 */
 
-//Bu Promise objesi döndüren fonksiyon
+//Bu Promise Object döndüren fonksiyon
 function getData(data) {
     return new Promise(function (resolve, reject) {
         if (typeof data === "string") {
-            resolve("OLUMLU!");
+            resolve("OLUMLU!")
         } else {
-            reject(new Error("OLUMSUZ!"));
+            reject(new Error("OLUMSUZ!"))
         }
-    });
+    })
 }
 
 //Bu da kullanma şekli.
@@ -28,16 +28,16 @@ getData("Merhaba")
     })
     .catch((err) => {
         //console.log(err);
-    });
+    })
 
 //? Then içinde tekrar bir return olmasın durumunda tekrar then ile devam edebiliriz.
 getData("Merhaba")
     .then((result) => {
-        return `${result} -> Sonradan Eklendi!`;
+        return `${result} -> Sonradan Eklendi!`
     })
     .then((res) => {
-        console.log(res); //bir üstteki then ile bekledik. ve "Sonradan Eklendi!" mesajı eklendi.
+        console.log(res) //bir üstteki then ile bekledik. ve "Sonradan Eklendi!" mesajı eklendi.
     })
     .catch((err) => {
-        console.log(err); //!Dikkat: Blok then kullanıldığında sadece 1 adet catch kullanılabilir!
-    });
+        console.log(err) //!Dikkat: Blok then kullanıldığında sadece 1 adet catch kullanılabilir!
+    })

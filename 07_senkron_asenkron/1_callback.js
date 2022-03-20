@@ -10,8 +10,8 @@
 */
 
 //?Callback
-
-//!Asenkron - Birbirini beklemeyen işlemler
+//Callbak nedir? -> En basit tanımı ile, bir fonksiyona, parametre olarak verdiğimiz ve daha sonra geri çağıdığımız fonksiyondur.
+//!Asenkron - Birbirini BEKLEMEYEN işlemler
 // function process1() {
 //     setTimeout(function () {
 //         console.log("1. işlem çalıştı.")
@@ -28,8 +28,8 @@
 // process2()
 // console.log("Hello")
 
-//! Asenkron'u callback fonksiyon ile yönetmek
-/*Bu gerçek hatatta ne işimize yarar, 
+//! Asenkron'u callback fonksiyon ile yönetmek - Birbirini BEKLEYEN işlemler
+/*Bu gerçek hayatta ne işimize yarar, 
 örneğin bir dosya okuma işlemi ardındanda ekranda 
 gösterme işimiz var bu yapıyı callback fonksiyon ile yönetebiliriz*/
 function process1(callbackHKN) {
@@ -47,8 +47,7 @@ function process2() {
 
 process1(process2)
 
-
-// ---Callback 2. Örnek 
+// ---Callback 2. Örnek
 
 var langs = ["Python", "Java", "C++"]
 function addLang(lang, callbackHKN) {
@@ -62,14 +61,11 @@ function addLang(lang, callbackHKN) {
 function getAllLangs() {
     setTimeout(function () {
         langs.forEach(function (lang) {
-            console.log(lang);
+            console.log(lang)
         })
     }, 3000)
 }
 
 addLang("JavaScript", getAllLangs)
-
-
-
 
 console.log("JavaScript asenkron çalışır, ben sayfanın en altındayım ama diğerlerinden önce çalıştım 🤭 ")
